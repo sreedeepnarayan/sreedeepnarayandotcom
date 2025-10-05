@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import TypewriterEffect from "@/components/ui/TypewriterEffect";
 
 export default function Home() {
   return (
@@ -7,34 +11,68 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="text-center">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-              Product Manager &{" "}
-              <span className="text-blue-600">Full Stack Engineer</span>
+              Strategic Problem Solver &{" "}
+              <span className="text-blue-600">Technical Leader</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Crafting digital experiences that bridge technology and creativity.
-              Building scalable solutions and leading cross-functional teams to
-              deliver impactful products.
+              Crafting digital experiences that bridge strategy and technology.
+              Leading cross-functional teams to deliver solutions that drive real
+              business impact.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link
-                href="#work"
-                className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors inline-flex items-center gap-2"
-              >
-                View My Work
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/resume.pdf"
-                target="_blank"
-                className="text-sm font-semibold leading-6 text-foreground hover:text-blue-600 transition-colors inline-flex items-center gap-2"
-              >
-                Download Resume
-                <Download className="h-4 w-4" />
-              </Link>
+            <div className="mt-4">
+              <TypewriterEffect
+                texts={[
+                  "Solving complex challenges with strategic technical solutions",
+                  "Leading teams to build scalable, impactful products",
+                  "Bridging business strategy and technical execution",
+                  "Turning ambitious ideas into working solutions",
+                  "Driving innovation through strategic technical leadership",
+                ]}
+                className="text-base text-blue-600 font-medium"
+                speed={40}
+                deleteSpeed={20}
+                pauseTime={3000}
+              />
             </div>
-          </div>
+            <motion.div 
+              className="mt-10 flex items-center justify-center gap-x-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="#work"
+                  className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors inline-flex items-center gap-2"
+                >
+                  Explore Collaboration
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="#work"
+                  className="text-sm font-semibold leading-6 text-foreground hover:text-blue-600 transition-colors inline-flex items-center gap-2"
+                >
+                  View Strategic Work
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Background decoration */}
